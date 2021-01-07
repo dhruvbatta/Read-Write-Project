@@ -56,13 +56,13 @@ public class XMLFileHandler implements MyFileHandler{
             Element rootElement = doc.createElement("employees");
             doc.appendChild(rootElement);
 
-            //todo : change teh collection name .. x1 does not mean anything
-            MyCollection x1= MyCollection.getInstance();
+            //todo : change teh collection name .. x1 does not mean anything -----Done
+            MyCollection writeCollection= MyCollection.getInstance();
             Employee emp;
 
             //todo : define 100 as a constant
             for(int writeItr=0;writeItr<100;writeItr++){
-                emp = x1.get();
+                emp = writeCollection.get();
 
                 //todo : need to look at the logic .. values are getting appended
                 Element employeeElement= doc.createElement("employee");
@@ -80,7 +80,7 @@ public class XMLFileHandler implements MyFileHandler{
                 experience.appendChild(doc.createTextNode(emp.getExperience()+" "));
                 employeeElement.appendChild(experience);
 
-                x1.incrementWrite();
+                writeCollection.incrementWrite();
             }
 
             //todo : look at moving the logic of writing content record by record
